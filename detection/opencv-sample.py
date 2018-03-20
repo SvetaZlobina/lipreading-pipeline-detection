@@ -14,12 +14,12 @@ img = cv2.imread('snapshots/news2.jpg')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 cv2.imshow('img in gray', gray)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 faces = face_cascade.detectMultiScale(
     gray,
-    scaleFactor=1.7,
+    scaleFactor=1.05,
     minNeighbors=5
     # minSize=(30, 30),
     # flags=cv2.cv.CV_HAAR_SCALE_IMAGE
@@ -41,17 +41,17 @@ for (x, y, w, h) in faces:
     # roi_color = img[y:y + h, x:x + w]
     mouths = mouth_cascade.detectMultiScale(
         roi_gray_face,
-        scaleFactor=1.7,
+        scaleFactor=1.5,
         minNeighbors=10
     )
 
     cv2.imshow('face', roi_gray_face)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
 # print("Found {0} mouths!".format(len(mouths)))
 
-    # print(mouths)
+    print(mouths)
     # print(type(mouths))
 
     if isinstance(mouths, tuple) or mouths.shape[0] == 0:
